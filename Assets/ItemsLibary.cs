@@ -18,6 +18,16 @@ public class ItemsLibary : MonoBehaviour {
         {
             test = "Lloyd";
         }
+        if (barcode.Equals("abcdefg")) {
+            test = "Nike Shoes";
+        }
+        if (barcode.Equals("12921j3")) {
+            test = "Adidas Shoes";
+        }
+        if (barcode.Equals("hgerget33")) {
+            test = "Lacoste Shoes";
+        }
+
         if (!test.Equals("")) {
             return test;
         }
