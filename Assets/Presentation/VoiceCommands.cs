@@ -25,7 +25,7 @@ namespace Assets.Presentation
 
         public void OnSpeechKeywordRecognized(SpeechEventData eventData)
         {
-            if (eventData.RecognizedText.Equals("yes") && guideText.Equals(guideTitles.yesToStart))
+            if (eventData.RecognizedText.Equals("yes") && guideText.text.Equals(guideTitles.yesToStart))
             {
                 Debug.Log("hey?");
                 microsoftLogo.SetActive(false);
@@ -34,14 +34,14 @@ namespace Assets.Presentation
                 SpatialMappingManager.Instance.DrawVisualMeshes = false;
                 SpatialMappingManager.Instance.StopObserver();
             }
-            if (eventData.RecognizedText.Equals("one") && guideText.Equals(guideTitles.workOrCapacity))
+            if (eventData.RecognizedText.Equals("one") && guideText.text.Equals(guideTitles.workOrCapacity))
             {
                 spatialUnderstanding.SetActive(true); //we need spatial understanding to regocnize walls, ceiling/floor etc...
                 wallText.gameObject.SetActive(true);
                 wallSurface.gameObject.SetActive(true);
                 facade.WallOrSurfaceScan(wallText, wallSurface, wallAllTriangles);
             }
-            if (eventData.RecognizedText.Equals("two") && guideText.Equals(guideTitles.workOrCapacity))
+            if (eventData.RecognizedText.Equals("two") && guideText.text.Equals(guideTitles.workOrCapacity))
             {
                 guideText.text = "You can now scan barcodes, go and scan your first location number!";
                 startedScanning = true;
@@ -87,7 +87,7 @@ namespace Assets.Presentation
         {
             guideTitles = new GuideTitles();
             facade = new LogicFacade();
-            guideText.text = "Go and scan any missing areas, when you are ready say 'Yes'";
+            guideText.text = guideTitles.yesToStart;
         }
     }
 }
