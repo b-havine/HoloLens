@@ -328,14 +328,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 121469699}
-  - component: {fileID: 121469700}
   - component: {fileID: 121469702}
   - component: {fileID: 121469701}
-  - component: {fileID: 121469703}
-  - component: {fileID: 121469705}
-  - component: {fileID: 121469706}
   - component: {fileID: 121469707}
   - component: {fileID: 121469698}
+  - component: {fileID: 121469700}
+  - component: {fileID: 121469703}
   m_Layer: 0
   m_Name: myControls
   m_TagString: Untagged
@@ -358,14 +356,14 @@ MonoBehaviour:
   - {fileID: 310242433}
   guideText: {fileID: 1888461038}
   errors: {fileID: 103612199}
+  debugText: {fileID: 634117207}
+  itemText: {fileID: 155697545}
   pickListPanel: {fileID: 647543985}
   spatialMapping: {fileID: 439904016}
   combinedMeshMaterial: {fileID: 2100000, guid: 452f941bcd9202641b983cd4fee093a3,
     type: 2}
   cam: {fileID: 706433115}
-  debugText: {fileID: 634117207}
   microsoftLogo: {fileID: 997201809}
-  itemText: {fileID: 155697545}
   correctImage: {fileID: 1781521501}
   wrongImage: {fileID: 1670806742}
 --- !u!4 &121469699
@@ -387,11 +385,24 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121469697}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed50457a3c3fb14fa6b1fd5718144ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b5f6c9f8ceaf954e9705cefb527a939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guideText: {fileID: 1888461038}
+  wallText: {fileID: 2145794234}
+  wallSurface: {fileID: 527710362}
+  wallAllTriangles: {fileID: 1140943119}
+  errors: {fileID: 103612199}
+  debugText: {fileID: 634117207}
+  itemText: {fileID: 155697545}
+  pickListPanel: {fileID: 647543985}
+  microsoftLogo: {fileID: 997201809}
+  spatialUnderstanding: {fileID: 1264890782}
+  spatialMapping: {fileID: 439904016}
+  surfaces:
+  - {fileID: 310242433}
 --- !u!114 &121469701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,48 +470,9 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121469697}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d904ac192f4eb4947a4c9293b0e15b06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wall: {fileID: 2145794234}
-  surface: {fileID: 527710362}
-  allTriangles: {fileID: 1140943119}
---- !u!114 &121469705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121469697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d79914330677fc4bb746ac6755ba6c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yes: {fileID: 1518964908}
-  no: {fileID: 1626693510}
-  surfaceCount: {fileID: 527710360}
-  wallCount: {fileID: 2145794232}
-  allTringles: {fileID: 1140943117}
-  spatialUnderstanding: {fileID: 1264890782}
-  guideText: {fileID: 1888461038}
-  pickListPanel: {fileID: 647543985}
-  font: {fileID: 12800000, guid: 2a056e2bb89e0134daaf49e5f183e5dc, type: 3}
-  surfaces:
-  - {fileID: 310242433}
-  material: {fileID: 2100000, guid: d698790d3facd3d4289a13fa1243030a, type: 2}
-  canWeScanBarcodes: 0
-  currentBarcodeValue: 
---- !u!114 &121469706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121469697}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8948e251c5f44624f92414b23d5cb35f, type: 3}
+  m_Script: {fileID: 11500000, guid: 701348f90b1d76248bc5c19178968556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &121469707
@@ -938,8 +910,6 @@ GameObject:
   - component: {fileID: 439904022}
   - component: {fileID: 439904021}
   - component: {fileID: 439904020}
-  - component: {fileID: 439904019}
-  - component: {fileID: 439904018}
   - component: {fileID: 310242433}
   - component: {fileID: 439904017}
   m_Layer: 0
@@ -961,34 +931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ee92cf0bacfb048a849915034fde59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &439904018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114781732377979130, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 439904016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703ffc081e0dd0348af4d360525e7ede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  surfaces:
-  - {fileID: 310242433}
-  objectsToRotate: []
---- !u!114 &439904019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114462481857197854, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 439904016}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988f8c2cd92a8ff48af64efaf0b15dde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: d698790d3facd3d4289a13fa1243030a, type: 2}
 --- !u!23 &439904020
 MeshRenderer:
   m_ObjectHideFlags: 0

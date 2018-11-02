@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Assets.Logic;
 
 namespace HoloLens
 {
@@ -13,8 +14,8 @@ namespace HoloLens
     public class TestScript {
         private Transform dummyTransform;
         private GameObject dummyGameobject;
-        private FinalBarcodeScanner fbs;
-        private GuideScript guideScript;
+        private BarcodeScanner fbs;
+        private PickListHelper pickListHelper;
         private List<Item> items;
         private List<LocationNumber> locations;
 
@@ -110,7 +111,7 @@ namespace HoloLens
         public void IsBarcodeItemOrLocation() {
             //test fails if string is empty.
             string barcode = "abcdefg";
-            string answer = ItemsLibary.getItem(barcode);
+            string answer = BarcodeRecognizer.getItem(barcode);
             if (barcode.Equals("")) {
                 throw new Exception("Barcode value not found!");
             }
@@ -127,9 +128,9 @@ namespace HoloLens
 
         [OneTimeSetUp]
         public void ThisFirst() {
-            fbs = new FinalBarcodeScanner();
-            items = GuideScript.items;
-            locations = FinalBarcodeScanner.locationNumbers;
+            fbs = new BarcodeScanner();
+            items = PickListHelper.items;
+            locations = BarcodeScanner.locationNumbers;
             InsertData();
         }
         // A UnityTest behaves like a coroutine in PlayMode

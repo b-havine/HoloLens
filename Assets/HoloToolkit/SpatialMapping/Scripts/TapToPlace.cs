@@ -131,10 +131,14 @@ namespace HoloToolkit.Unity.SpatialMapping
 
         public virtual void OnInputClicked(InputClickedEventData eventData)
         {
+            Debug.Log("are we tapping");
             // On each tap gesture, toggle whether the user is in placing mode.
-            IsBeingPlaced = !IsBeingPlaced;
-            HandlePlacement();
-            eventData.Use();
+            if (!gameObject.name.Equals("Cube"))
+            {
+                IsBeingPlaced = !IsBeingPlaced;
+                HandlePlacement();
+                eventData.Use();
+            }
         }
 
         private void HandlePlacement()
@@ -167,7 +171,6 @@ namespace HoloToolkit.Unity.SpatialMapping
             ToggleSpatialMesh();
             AttachWorldAnchor();
         }
-
         private void AttachWorldAnchor()
         {
             if (WorldAnchorManager.Instance != null)
