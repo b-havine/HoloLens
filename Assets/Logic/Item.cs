@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//this is an object oriented class for an item
 public class Item : MonoBehaviour {
     private int id;
     private Transform panelPosition;

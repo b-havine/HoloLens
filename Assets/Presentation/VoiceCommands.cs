@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 namespace Assets.Presentation
 {
+    //this class represents what happens when you say certain voice commands (yes, no, scan etc.)
     class VoiceCommands : MonoBehaviour, ISpeechHandler
     {
         public Text guideText, wallText, wallSurface, wallAllTriangles, errors, debugText, itemText;
@@ -46,7 +47,7 @@ namespace Assets.Presentation
                 guideText.text = "You can now scan barcodes, go and scan your first location number!";
                 startedScanning = true;
                 pickListPanel.SetActive(true);
-                facade.ScanRepeatingly(areWeScanning);
+                facade.ScanRepeatingly(areWeScanning, guideText);
             }
             if (eventData.RecognizedText.Equals("scan") && areWePicking == false && startedScanning == true)
             {

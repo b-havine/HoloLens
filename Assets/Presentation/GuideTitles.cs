@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Assets.Presentation
 {
+    //this class holds the strings that are being shown the user in the ui.
     class GuideTitles { 
 
          public string yesToStart = "Go and scan any missing areas, when you are ready say 'Yes'";

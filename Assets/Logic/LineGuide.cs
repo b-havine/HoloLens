@@ -6,6 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 namespace Assets.Logic
 {
+    //this class has the task of guiding the lines to where the user should move.
     public class LineGuide : MonoBehaviour
     {
 

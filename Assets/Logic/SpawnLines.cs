@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Assets.Logic
 {
+    //This class is responsible for instantiating the guiding lines, for every 1.5 seconds.
     public class SpawnLines: MonoBehaviour
     {
         //We need to drag the robot in, because the script is depending on a prefab

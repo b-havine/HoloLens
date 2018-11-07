@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Assets.Logic
 {
+    //This class has to do with gettings some stats on how large an area can be scanned,
+    //this is accomplished by counting the total amount of traingles that are being shown when scannning.
     public class ScanCapacity : MonoBehaviour
     {
 

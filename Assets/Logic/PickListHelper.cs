@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 namespace Assets.Logic
 {
+    //this class has to do with the picklist (picklist is the items that need to be picked up),
+    //the functions are about inserting, updating and removing items from the picklist.
     public class PickListHelper: MonoBehaviour
     {
         public static List<Item> items = new List<Item>();

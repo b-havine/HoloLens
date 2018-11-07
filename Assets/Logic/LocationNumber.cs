@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//this is an object oriented class that has to do with a location number
 public class LocationNumber : MonoBehaviour {
     private GameObject locNumOnWall;
     private string description;

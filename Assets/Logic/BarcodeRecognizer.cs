@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Assets.Logic
 {
-
+    //this class has to do with the barcode value of items
     public class BarcodeRecognizer : MonoBehaviour
     {
 

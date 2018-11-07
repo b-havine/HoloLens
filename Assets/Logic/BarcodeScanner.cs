@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 namespace Assets.Logic
 {
+    //this class represents the functions that to do with the system from putting goods,
+    //to picking goods again. Also the scanning of a barcode happens here
     public class BarcodeScanner : MonoBehaviour
     {
         public List<NavMeshSurface> surfaces = new List<NavMeshSurface>();
@@ -127,7 +129,7 @@ namespace Assets.Logic
             }
         }
 
-        public void ScanRepeatingly(bool areWeScanning) {
+        public void ScanRepeatingly(bool areWeScanning, Text guideText) {
 #if !UNITY_EDITOR
     MediaFrameQrProcessing.Wrappers.ZXingQrCodeScanner.ScanFirstCameraForQrCode(
         result =>

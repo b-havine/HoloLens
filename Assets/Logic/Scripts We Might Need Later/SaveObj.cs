@@ -6,6 +6,9 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
+//this class can be used for combining child gameobject to the parent, and afterwards
+//export the mesh to an obj file which is of the type 3d image. The obj file can be dragged
+//to the editor to be used again.
 public class SaveObj : MonoBehaviour, ISpeechHandler
 {
     private static int StartIndex = 0;
