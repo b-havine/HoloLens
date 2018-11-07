@@ -8,7 +8,7 @@ put items om stock - or when the item has to be picked up for shipping.
 In order to see the Solution Explorer of our architecture, you need to open the HoloLens.sln file
  in visual Studio the sln file is located at the root of the HoloLens folder.
  
- The version we have been working with is: 
+ ## The version we have been working with is: 
  ### Visual Studio Enterprise 2017 15.8.8.
  
  
