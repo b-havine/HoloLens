@@ -12,7 +12,8 @@ In order to see the Solution Explorer of our architecture, you need to open the 
  ### Visual Studio Enterprise 2017 15.8.8.
  
  
-If the file cannot be opened, you will need to go into Microsoft Visual Installer:
+ 
+# If the file cannot be opened, you will need to go into Microsoft Visual Installer:
 ## 1. click on modify
 ## 2. check if you have these workloads: 
   ### .NET desktop development
