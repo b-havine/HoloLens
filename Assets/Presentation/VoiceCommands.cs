@@ -10,7 +10,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 namespace Assets.Presentation
-{
+{-
     //this class represents what happens when you say certain voice commands (yes, no, scan etc.)
     class VoiceCommands : MonoBehaviour, ISpeechHandler
     {
@@ -26,23 +26,23 @@ namespace Assets.Presentation
 
         public void OnSpeechKeywordRecognized(SpeechEventData eventData)
         {
-            if (eventData.RecognizedText.Equals("yes") && guideText.text.Equals(guideTitles.yesToStart))
+            if (eventData.RecognizedText.Equals("yes") && guideText.text.Equals(guideTitles.YesToStart))
             {
                 Debug.Log("hey?");
                 microsoftLogo.SetActive(false);
-                guideText.text = guideTitles.workOrCapacity;
+                guideText.text = guideTitles.WorkOrCapacity;
                 /* !! not from facade, ask teacher if we can make persistence facade for logic layer?*/
                 SpatialMappingManager.Instance.DrawVisualMeshes = false;
                 SpatialMappingManager.Instance.StopObserver();
             }
-            if (eventData.RecognizedText.Equals("one") && guideText.text.Equals(guideTitles.workOrCapacity))
+            if (eventData.RecognizedText.Equals("one") && guideText.text.Equals(guideTitles.WorkOrCapacity))
             {
                 spatialUnderstanding.SetActive(true); //we need spatial understanding to regocnize walls, ceiling/floor etc...
                 wallText.gameObject.SetActive(true);
                 wallSurface.gameObject.SetActive(true);
                 facade.WallOrSurfaceScan(wallText, wallSurface, wallAllTriangles);
             }
-            if (eventData.RecognizedText.Equals("two") && guideText.text.Equals(guideTitles.workOrCapacity))
+            if (eventData.RecognizedText.Equals("two") && guideText.text.Equals(guideTitles.WorkOrCapacity))
             {
                 guideText.text = "You can now scan barcodes, go and scan your first location number!";
                 startedScanning = true;
@@ -61,7 +61,7 @@ namespace Assets.Presentation
             {
                 facade.PlaceLocationOnWall(allowToScanItems, errors, areWeScanning, confirmBarcode);
             }
-            if (eventData.RecognizedText.Equals("go") && guideText.text.Equals(guideTitles.startPicking) && areWePicking == true)
+            if (eventData.RecognizedText.Equals("go") && guideText.text.Equals(guideTitles.StartPicking) && areWePicking == true)
             {
                 facade.StartPickingMode(guideText, errors, areWeScanning, pickListPanel);
             }
@@ -73,12 +73,12 @@ namespace Assets.Presentation
             {
                 facade.DoneWithLocationItems(errors, allowToScanItems, areWeScanning);
             }
-            if (eventData.RecognizedText.Equals("back") && guideText.text.Equals(guideTitles.baydoorScanned))
+            if (eventData.RecognizedText.Equals("back") && guideText.text.Equals(guideTitles.BaydoorScanned))
             {
                 areWeScanning = true;
                 errors.text = "baydoor canceled, scan missing location numbers!";
             }
-            if (eventData.RecognizedText.Equals("end") && guideText.text.Equals(guideTitles.baydoorScanned))
+            if (eventData.RecognizedText.Equals("end") && guideText.text.Equals(guideTitles.BaydoorScanned))
             {
                 facade.PrepareForPickUp(copyBarcodeValue, areWePicking, allowToScanItems, areWeScanning, surfaces, spatialMapping);
             }
@@ -88,7 +88,7 @@ namespace Assets.Presentation
         {
             guideTitles = new GuideTitles();
             facade = new LogicFacade();
-            guideText.text = guideTitles.yesToStart;
+            guideText.text = guideTitles.YesToStart;
         }
     }
 }
