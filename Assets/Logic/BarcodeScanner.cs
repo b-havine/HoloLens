@@ -30,6 +30,7 @@ namespace Assets.Logic
         public static List<LocationNumber> locationNumbers = new List<LocationNumber>();
         private LineGuide lineGuide = new LineGuide();
         private SpawnLines spawnLines = new SpawnLines();
+        private BarcodeRecognizer barcodeRecognizer = new BarcodeRecognizer();
 
         public void PrepareForPickUp(string copyBarcodeValue, bool areWePicking, bool allowToScanItems, bool areWeScanning, List<NavMeshSurface> surfaces, GameObject spatialMapping)
         {
@@ -115,7 +116,7 @@ namespace Assets.Logic
 
         public void PlaceLocationOnWall(bool allowToScanItems, Text errors, bool areWeScanning, string confirmBarcode)
         {
-            string isConfirmedLocationOrNot = BarcodeRecognizer.getItem(confirmBarcode);
+            string isConfirmedLocationOrNot = barcodeRecognizer.ItemOrLocationNumber(confirmBarcode);
             if (isConfirmedLocationOrNot.Equals(""))
             {
                 Create3DTextOnWall(confirmBarcode);
@@ -165,7 +166,7 @@ namespace Assets.Logic
             }
             if (allowToScanItems == true)
             {
-                if (BarcodeRecognizer.getItem(copyBarcodeValue).Equals(""))
+                if (barcodeRecognizer.ItemOrLocationNumber(copyBarcodeValue).Equals(""))
                 {
                     StartCoroutine(ShowCorrectLogo(false));
                     errors.text = "you did not scan an item, try again, if you're done with items say: 'done'";
@@ -173,13 +174,13 @@ namespace Assets.Logic
                     return;
                 }
                 StartCoroutine(ShowCorrectLogo(true));
-                copyBarcodeValue = BarcodeRecognizer.getItem(copyBarcodeValue);
+                copyBarcodeValue = barcodeRecognizer.ItemOrLocationNumber(copyBarcodeValue);
                 guideText.text = copyBarcodeValue + " added to: " + confirmBarcode;
                 errors.text = "Item scanned: " + copyBarcodeValue + ", say 'scan' to add more items to location, say 'done' to confirm the items to location";
                 pickListHelper.InsertPickUpItemToPanel(copyBarcodeValue, confirmBarcode);
                 areWeScanning = true;
             }
-            string isConfirmedLocationOrNot = BarcodeRecognizer.getItem(confirmBarcode);
+            string isConfirmedLocationOrNot = barcodeRecognizer.ItemOrLocationNumber(confirmBarcode);
             if (cube == null && isConfirmedLocationOrNot.Equals("") && !copyBarcodeValue.Equals(""))
             {
                 //if cube is null then we instantiate a cube that is used as postition for text meshes, also follow camera.
@@ -211,7 +212,7 @@ namespace Assets.Logic
                 GameObject.Find("myControls").GetComponent<SpawnLines>().enabled = false;
                 return;
             }
-            if (BarcodeRecognizer.getItem(copyBarcodeValue).Equals("") && locationNumbers[SpawnLines.counter].Description.Equals(copyBarcodeValue) && allowToScanItems == false)
+            if (barcodeRecognizer.ItemOrLocationNumber(copyBarcodeValue).Equals("") && locationNumbers[SpawnLines.counter].Description.Equals(copyBarcodeValue) && allowToScanItems == false)
             {
                 StartCoroutine(ShowCorrectLogo(true));
                 errors.text = "You have scanned the correct location number, now scan the items";
@@ -237,14 +238,14 @@ namespace Assets.Logic
             }
             if (allowToScanItems == true)
             {
-                if (BarcodeRecognizer.getItem(copyBarcodeValue).Equals(""))
+                if (barcodeRecognizer.ItemOrLocationNumber(copyBarcodeValue).Equals(""))
                 {
                     StartCoroutine(ShowCorrectLogo(false));
                     errors.text = "you did not scan an item, try again, if you're done picking up items here say 'done'";
                     areWeScanning = true;
                     return;
                 }
-                copyBarcodeValue = BarcodeRecognizer.getItem(copyBarcodeValue);
+                copyBarcodeValue = barcodeRecognizer.ItemOrLocationNumber(copyBarcodeValue);
                 //errors.text = "something went wrong? item scanned was: " + copyBarcodeValue + ", confirmed barcode was: " + confirmBarcode;
                 for (int i = 0; i < PickListHelper.items.Count; i++)
                 {

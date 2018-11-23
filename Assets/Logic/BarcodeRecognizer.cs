@@ -10,7 +10,7 @@ namespace Assets.Logic
         //can be used for:
         //(1) convert barcode to item name, if barcode exists in the if statements
         //(2) if no items existed according to the barcode, then the barcode might be a location number.
-        public static string getItem(string barcode)
+        private string GetItem(string barcode)
         {
             string test = "";
             if (barcode.Equals("012378A93L2N"))
@@ -42,13 +42,14 @@ namespace Assets.Logic
         }
         public string ItemOrLocationNumber(string barcode)
         {
-            if (BarcodeRecognizer.getItem(barcode).Equals(""))
+            if (GetItem(barcode).Equals(""))
             {
                 return barcode;
             }
-            if (!BarcodeRecognizer.getItem(barcode).Equals(""))
+            if (!GetItem(barcode).Equals(""))
             {
-                return BarcodeRecognizer.getItem(barcode);
+                string item = GetItem(barcode);
+                return item;
             }
             return "";
         }
